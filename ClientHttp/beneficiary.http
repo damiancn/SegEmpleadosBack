@@ -1,0 +1,31 @@
+###
+GET https://localhost:44330/api/beneficiary HTTP/1.1
+
+###
+GET https://localhost:44330/api/beneficiary/id?id=61404fbd-fe8c-4dbd-66de-08dc9409a073 HTTP/1.1
+
+###
+POST https://localhost:44330/api/beneficiary HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": null,
+  "name": "string",
+  "firstName": "string",
+  "seconLastName": "string",
+  "relationship": "hermano",
+  "fk_Employee": "71c9c900-449a-4ca9-8c5c-08dc9403f008"
+}
+
+###
+PUT https://localhost:44330/api/beneficiary/61404fbd-fe8c-4dbd-66de-08dc9409a073/id HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": "61404fbd-fe8c-4dbd-66de-08dc9409a073",
+  "name": "a",
+  "firstName": "a",
+  "seconLastName": "a",
+  "relationship": "hermano",
+  "fk_Employee": "71c9c900-449a-4ca9-8c5c-08dc9403f008"
+}

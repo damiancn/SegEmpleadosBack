@@ -1,0 +1,42 @@
+###
+GET https://localhost:44330/api/Employee HTTP/1.1
+
+###
+GET https://localhost:44330/api/Employee/id?id=71c9c900-449a-4ca9-8c5c-08dc9403f008 HTTP/1.1
+
+###
+POST https://localhost:44330/api/Employee HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": null,
+  "name": "Test",
+  "firstName": "Test",
+  "seconLastName": "Test",
+  "fullName": "Test",
+  "dateAcces": "2024-06-24T04:12:58.925Z",
+  "birthDate": "2000-06-24T04:12:58.925Z",
+  "age": 0,
+  "fotography": "Test",
+  "position": "Test",
+  "salary": 0
+}
+
+###
+PUT https://localhost:44330/api/Employee/71c9c900-449a-4ca9-8c5c-08dc9403f008/id HTTP/1.1
+Content-Type: application/json
+
+{
+      "id": "71c9c900-449a-4ca9-8c5c-08dc9403f008",
+      "name": "edit",
+      "firstName": "edit",
+      "seconLastName": "edit",
+      "fullName": "edit edit edit",
+      "dateAcces": "2024-06-24T04:12:58.925",
+      "birthDate": "1999-06-24T04:12:58.925",
+      "age": 0,
+      "fotography": "edit",
+      "position": "hr",
+      "salary": 34.00
+}
+###

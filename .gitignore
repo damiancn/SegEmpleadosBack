@@ -3,3 +3,18 @@
 ################################################################################
 
 /Services/bin/Debug/net6.0
+/DataAcccess/bin/Debug/net6.0
+/DataAcccess/obj/Debug/net6.0
+/DataAcccess/obj/Release/net6.0
+/DataAcccess/obj
+/Dtos/bin/Debug/net6.0
+/Dtos/obj
+/Entities/bin/Debug/net6.0
+/Entities/obj
+/Facade/obj
+/Facade/bin/Debug/net6.0
+/Resources/bin/Debug/net6.0
+/Resources/obj
+/SeguimientoEmpleadosAPI/bin/Debug/net6.0
+/SeguimientoEmpleadosAPI/obj
+/Services/obj
