@@ -24,14 +24,14 @@ namespace Entities.Models.Catalog
         public int Age { get; set; }
         [Column(TypeName = "text")]
         public string Fotography { get; set; }
-        [MaxLength(50)]
-        [Required]
-        public string Position { get; set; }
         [Column(TypeName = "Decimal(8,2)")]
         [Required]
         public decimal Salary { get; set; }
-
+        public Guid Fk_Position { get; set; }
         public List<BeneficiaryModel> Beneficiary { get; set; }
         public UserModel User { get; set; }
+        [ForeignKey("Fk_Position")]
+        public PositionModel Position { get; set; }
+
     }
 }

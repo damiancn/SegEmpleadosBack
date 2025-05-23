@@ -61,7 +61,7 @@
                 Rol = rol.Dto.Name,
                 RolId = rol.Dto.Id,
                 UserName = userLog.Dto.Name,
-                UserId = userLog.Dto.Id,
+                UserId = (Guid)userLog.Dto.Id,
             };
             var modelToken = new TokenUtil
             {

@@ -30,3 +30,5 @@ Aplicar las migraciones no va a ser necesario, debido a que estas se ejecutan cu
 solo asegurate que SeguimientoEmpleadosAPI tenga la opción seleccionada como "Set as startu project"
 
 Con eso las migraciones se estaran preparando y cargando datos previos para la base de datos.
+
+Incluye el token JWT en el encabezado Authorization de tus solicitudes en caso de ser consultado.

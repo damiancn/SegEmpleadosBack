@@ -19,20 +19,19 @@ namespace DataAcccess.Beneficiary
         public async Task<List<BeneficiaryModel>> GetAll()
         {
             var beneficiary = await this.ctx.Beneficiaries.Include(e => e.Employee).ToListAsync();
-            SqlValidation<BeneficiaryModel>.VailidateCountList(beneficiary, "Beneficiarios");
+            SqlValidation<BeneficiaryModel>.ValidateCountList(beneficiary, "Beneficiarios");
             return beneficiary;
         }
 
         public async Task<BeneficiaryModel> GetById(Guid id)
         {
             var beneficiaryById = await this.ctx.Beneficiaries.Include(e => e.Employee).Where(x => x.Id == id).FirstOrDefaultAsync();
-            SqlValidation<BeneficiaryModel>.VailidateFound(beneficiaryById, "Beneficiario");
+            SqlValidation<BeneficiaryModel>.ValidateFound(beneficiaryById, "Beneficiario");
             return beneficiaryById;
         }
 
         public async Task<BeneficiaryModel> Post(BeneficiaryModel beneficiary)
         {
-            var dataGuid = new Guid();
             beneficiary.Id = new Guid();
             this.ctx.Beneficiaries.Add(beneficiary);
             await ((DataBaseContext)this.ctx).SaveChangesAsync();
@@ -42,7 +41,7 @@ namespace DataAcccess.Beneficiary
         public async Task<BeneficiaryModel> Put(Guid id, BeneficiaryModel beneficiary)
         {
             var beneficiaryById = await this.ctx.Beneficiaries.Where(e => e.Id == id).FirstOrDefaultAsync();
-            SqlValidation<BeneficiaryModel>.VailidateFound(beneficiaryById, "Beneficiario");
+            SqlValidation<BeneficiaryModel>.ValidateFound(beneficiaryById, "Beneficiario");
             beneficiaryById.Name = beneficiary.Name;
             beneficiaryById.FirstName = beneficiary.FirstName;
             beneficiaryById.SeconLastName = beneficiary.SeconLastName;

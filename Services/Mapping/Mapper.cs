@@ -3,6 +3,7 @@ namespace Services.Mapping
 {
     using AutoMapper;
     using Dtos.Beneficiary;
+    using Dtos.Catalogs.Position;
     using Dtos.Employee;
     using Dtos.Security.Login;
     using Dtos.Security.Menu;
@@ -20,11 +21,14 @@ namespace Services.Mapping
         {
             #region Catalogs
             CreateMap<EmployeeModel, EmployeeDto>()
-                .ForMember(e => e.FullName, mo => mo.MapFrom(m => m.Name + " " + m.FirstName + " " + m.SeconLastName)); ;
+                .ForMember(e => e.FullName, mo => mo.MapFrom(m => m.Name + " " + m.FirstName + " " + m.SeconLastName))
+                .ForMember(e => e.PositionName, mo => mo.MapFrom(m=> m.Position.Name));
             CreateMap<EmployeeDto, EmployeeModel>();
             CreateMap<BeneficiaryModel, BeneficiaryDto>()
                 .ForMember(e=> e.EmployeeName, mo => mo.MapFrom(m => m.Employee.Name + " " + m.Employee.FirstName + " " + m.Employee.SeconLastName));
             CreateMap<BeneficiaryDto, BeneficiaryModel>();
+            CreateMap<PositionModel, PositionDto>();
+            CreateMap<PositionDto, PositionModel>();
             #endregion
 
             #region Securuty

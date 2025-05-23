@@ -33,7 +33,7 @@ namespace SeguimientoEmpleadosAPI.Controllers.Security
         [ProducesResponseType(typeof(ResponseDto<List<UserDto>>), (int)HttpStatusCode.OK, "application/json")]
         [ProducesResponseType(typeof(ResponseDto<List<UserDto>>), (int)HttpStatusCode.OK, "application/json")]
         [ProducesResponseType(typeof(ResponseDto<List<UserDto>>), (int)HttpStatusCode.NotFound, "application/json")]
-        [HttpGet("{id:Guid}/id")]
+        [HttpGet("id")]
         public async Task<ResponseDto<UserDto>> GetById(Guid id)
         {
             return await user.GetById(id);

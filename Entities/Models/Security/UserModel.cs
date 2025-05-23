@@ -16,7 +16,6 @@ namespace Entities.Models.Security
         public bool Active { get; set; }
         public Guid? Fk_Employee { get; set; }
 
-        // Propiedad de navegación
         [ForeignKey("Fk_Employee")]
         public EmployeeModel Employee { get; set; }
     }

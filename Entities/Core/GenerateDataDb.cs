@@ -11,6 +11,7 @@
         private const int Iterations = 1000;
         public static void SetTables(ModelBuilder builder)
         {
+            builder.Entity<PositionModel>().HasData(SetPosition());
             builder.Entity<EmployeeModel>().HasData(SetEmployee());
             builder.Entity<BeneficiaryModel>().HasData(SetBeneficiary());
             builder.Entity<UserModel>().HasData(SetUsers());
@@ -18,6 +19,15 @@
             builder.Entity<PageModel>().HasData(SetPage());
             builder.Entity<RolPageModel>().HasData(SetRolPage());
             builder.Entity<RolUserModel>().HasData(SetRolUser());
+        }
+        public static PositionModel SetPosition()
+        {
+            return new PositionModel()
+            {
+                Id = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
+                Name = "Empleado",
+                Active = true,
+            };
         }
         public static List<EmployeeModel> SetEmployee()
         {
@@ -33,8 +43,8 @@
                     BirthDate = new DateTime(1997, 12,12, 15, 30, 45),
                     Age = (DateTime.Now.Year - new DateTime(1997, 12, 12, 15, 30, 45).Year) - (DateTime.Now.Month < new DateTime(1997, 12, 12, 15, 30, 45).Month || (DateTime.Now.Month == new DateTime(1997, 12, 12, 15, 30, 45).Month && DateTime.Now.Day < new DateTime(1997, 12, 12, 15, 30, 45).Day) ? 1 : 0),
                     Fotography = "",
-                    Position = "Empleado",
                     Salary = 10000.05m,
+                    Fk_Position = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6")
                 },
                 new EmployeeModel()
                 {
@@ -46,8 +56,8 @@
                     BirthDate = new DateTime(1999, 02, 01, 09, 00, 45),
                     Age = (DateTime.Now.Year - new DateTime(1999, 02, 01, 09, 00, 45).Year) - (DateTime.Now.Month < new DateTime(1999, 02, 01, 09, 00, 45).Month || (DateTime.Now.Month == new DateTime(1999, 02, 01, 09, 00, 45).Month && DateTime.Now.Day < new DateTime(1999, 02, 01, 09, 00, 45).Day) ? 1 : 0),
                     Fotography = "",
-                    Position = "Empleado",
                     Salary = 10000.03m,
+                    Fk_Position = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6")
                 }
             };
         }
@@ -57,9 +67,9 @@
             {
                 Id = Guid.Parse("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
                 Name = "Juan",
-                FirstName ="Perez",
+                FirstName = "Perez",
                 SeconLastName = "Perez",
-                Relationship =" Hermano",
+                Relationship = " Hermano",
                 Fk_Employee = Guid.Parse("38cfa51a-a5e4-83a2-2cfd-b3a608c8cc93")
             };
         }
@@ -121,7 +131,7 @@
                 {
                     Id=Guid.Parse("abeede3b-f554-b981-0963-d9fc4290dacf"),
                     Icon="manage_accounts",
-                    Code="group",
+                    Code="beneficiario",
                     Name="Beneficiarios",
                     Active=true,
                 },

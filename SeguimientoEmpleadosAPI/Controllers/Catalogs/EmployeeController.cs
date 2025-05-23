@@ -5,7 +5,6 @@
     using Facade.Catalogs.Employee;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using Resources.UtilsExecptions;
     using System.Net;
 
     [Route("api/[controller]")]
@@ -22,6 +21,7 @@
 
         [ProducesResponseType(typeof(ResponseDto<List<EmployeeDto>>), (int)HttpStatusCode.OK, "application/json")]
         [ProducesResponseType(typeof(ResponseDto<List<EmployeeDto>>), (int)HttpStatusCode.NotFound, "application/json")]
+        [ProducesResponseType(typeof(ResponseDto<List<EmployeeDto>>), (int)HttpStatusCode.InternalServerError, "application/json")]
         [ProducesResponseType(typeof(ResponseDto<List<EmployeeDto>>), (int)HttpStatusCode.Unauthorized, "application/json")]
         [HttpGet]
         public async Task<ResponseDto<List<EmployeeDto>>> GetAll()
@@ -31,6 +31,7 @@
 
         [ProducesResponseType(typeof(ResponseDto<List<EmployeeDto>>), (int)HttpStatusCode.OK, "application/json")]
         [ProducesResponseType(typeof(ResponseDto<List<EmployeeDto>>), (int)HttpStatusCode.NotFound, "application/json")]
+        [ProducesResponseType(typeof(ResponseDto<List<EmployeeDto>>), (int)HttpStatusCode.InternalServerError, "application/json")]
         [ProducesResponseType(typeof(ResponseDto<List<EmployeeDto>>), (int)HttpStatusCode.Unauthorized, "application/json")]
         [HttpGet("id")]
         public async Task<ResponseDto<EmployeeDto>> GetById(Guid id)
@@ -51,6 +52,7 @@
         [ProducesResponseType(typeof(ResponseDto<List<EmployeeDto>>), (int)HttpStatusCode.OK, "application/json")]
         [ProducesResponseType(typeof(ResponseDto<List<EmployeeDto>>), (int)HttpStatusCode.NotFound, "application/json")]
         [ProducesResponseType(typeof(ResponseDto<List<EmployeeDto>>), (int)HttpStatusCode.InternalServerError, "application/json")]
+        [ProducesResponseType(typeof(ResponseDto<List<EmployeeDto>>), (int)HttpStatusCode.Unauthorized, "application/json")]
         [HttpPut("{id:Guid}/id")]
         public async Task<ResponseDto<EmployeeDto>> Put(Guid id, EmployeeDto model)
         {

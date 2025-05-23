@@ -4,6 +4,7 @@ using Entities.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Entities.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240627152344_ThirdMigration")]
+    partial class ThirdMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,6 +99,9 @@ namespace Entities.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<Guid?>("PositionId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<decimal>("Salary")
                         .HasColumnType("Decimal(8,2)");
 
@@ -105,7 +110,7 @@ namespace Entities.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Fk_Position");
+                    b.HasIndex("PositionId");
 
                     b.ToTable("Employees", "Catalogs");
 
@@ -115,7 +120,7 @@ namespace Entities.Migrations
                             Id = new Guid("b07b6dce-e97f-99cb-c7ad-95c202bbe464"),
                             Age = 26,
                             BirthDate = new DateTime(1997, 12, 12, 15, 30, 45, 0, DateTimeKind.Unspecified),
-                            DateAcces = new DateTime(2024, 9, 26, 15, 2, 57, 83, DateTimeKind.Local).AddTicks(8521),
+                            DateAcces = new DateTime(2024, 6, 27, 9, 23, 44, 274, DateTimeKind.Local).AddTicks(4301),
                             FirstName = "Carreon",
                             Fk_Position = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
                             Fotography = "",
@@ -128,7 +133,7 @@ namespace Entities.Migrations
                             Id = new Guid("38cfa51a-a5e4-83a2-2cfd-b3a608c8cc93"),
                             Age = 25,
                             BirthDate = new DateTime(1999, 2, 1, 9, 0, 45, 0, DateTimeKind.Unspecified),
-                            DateAcces = new DateTime(2024, 9, 26, 15, 2, 57, 83, DateTimeKind.Local).AddTicks(8560),
+                            DateAcces = new DateTime(2024, 6, 27, 9, 23, 44, 274, DateTimeKind.Local).AddTicks(4322),
                             FirstName = "Perez",
                             Fk_Position = new Guid("3fa85f64-5717-4562-b3fc-2c963f66afa6"),
                             Fotography = "",
@@ -203,7 +208,7 @@ namespace Entities.Migrations
                         {
                             Id = new Guid("abeede3b-f554-b981-0963-d9fc4290dacf"),
                             Active = true,
-                            Code = "beneficiario",
+                            Code = "group",
                             Icon = "manage_accounts",
                             Name = "Beneficiarios"
                         });
@@ -368,7 +373,7 @@ namespace Entities.Migrations
                             Active = true,
                             Fk_Employee = new Guid("b07b6dce-e97f-99cb-c7ad-95c202bbe464"),
                             Name = "Administrador",
-                            Password = "19RbBeYHvVjD4Kthe2ilce0/eLwV9mFMztY1oMAAoFgwqtUb"
+                            Password = "ijnmi9luxmLgeS1Dm76ljpiRuk7HWxLTGkLu2F2zP8qsrNLC"
                         },
                         new
                         {
@@ -376,7 +381,7 @@ namespace Entities.Migrations
                             Active = true,
                             Fk_Employee = new Guid("38cfa51a-a5e4-83a2-2cfd-b3a608c8cc93"),
                             Name = "Usuario",
-                            Password = "enUPdpzqcAbcoyLO3K9W/Cq7n8mHsM1UJ6g4KBS15nglYlW9"
+                            Password = "T0zx1afFqn4nEQFOxnf2MrJYkG6v7vOZq/UvqL7alJRBFn/S"
                         });
                 });
 
@@ -395,9 +400,7 @@ namespace Entities.Migrations
                 {
                     b.HasOne("Entities.Models.Catalog.PositionModel", "Position")
                         .WithMany()
-                        .HasForeignKey("Fk_Position")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PositionId");
 
                     b.Navigation("Position");
                 });

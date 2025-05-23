@@ -21,14 +21,14 @@ namespace DataAcccess.Security.User
         public async Task<List<UserModel>> GetAll()
         {
             var user = await this.ctx.Users.ToListAsync();
-            SqlValidation<UserModel>.VailidateCountList(user, "Empleado");
+            SqlValidation<UserModel>.ValidateCountList(user, "Empleado");
             return user;
         }
 
         public async Task<UserModel> GetById(Guid id)
         {
-            var user = await this.ctx.Users.FirstOrDefaultAsync();
-            SqlValidation<UserModel>.VailidateFound(user, "Empleado");
+            var user = await this.ctx.Users.Include(e=> e.Employee).FirstOrDefaultAsync();
+            SqlValidation<UserModel>.ValidateFound(user, "Empleado");
             return user;
         }
 
@@ -43,7 +43,7 @@ namespace DataAcccess.Security.User
         public async Task<UserModel> Put(Guid id, UserModel user)
         {
             var userById = await this.ctx.Users.Where(e => e.Id == id).FirstOrDefaultAsync();
-            SqlValidation<UserModel>.VailidateFound(userById, "User");
+            SqlValidation<UserModel>.ValidateFound(userById, "User");
             userById.Name = user.Name;
             userById.Password = user.Password;
             userById.Active = user.Active;
@@ -54,7 +54,7 @@ namespace DataAcccess.Security.User
         public async Task<UserModel> GetUserLogin(UserModel model)
         {
             var user = await this.ctx.Users.Where(e => e.Name == model.Name && e.Active).FirstOrDefaultAsync();
-            SqlValidation<UserModel>.VailidateFound(user, "User Logged");
+            SqlValidation<UserModel>.ValidateFound(user, "User Logged");
             return user;
         }
     }

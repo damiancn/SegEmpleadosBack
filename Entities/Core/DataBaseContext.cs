@@ -14,6 +14,7 @@ namespace Entities.Core
         #region Catalogs
         public DbSet<EmployeeModel> Employees { get; set ; }
         public DbSet<BeneficiaryModel> Beneficiaries { get; set; }
+        public DbSet<PositionModel> Positions { get; set; }
         #endregion
 
         #region Security

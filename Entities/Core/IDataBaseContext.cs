@@ -10,6 +10,7 @@ namespace Entities.Core
         #region Catalogs
         DbSet<EmployeeModel> Employees { get; set; }
         DbSet<BeneficiaryModel> Beneficiaries { get; set; }
+        DbSet<PositionModel> Positions { get; set; }
         #endregion
         #region Security
         DbSet<PageModel> Pages { get; set; }

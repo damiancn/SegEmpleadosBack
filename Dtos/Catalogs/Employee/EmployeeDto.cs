@@ -17,7 +17,9 @@ namespace Dtos.Employee
         public DateTime BirthDate { get; set; }
         public int Age { get; set; }
         public string Fotography { get; set; }
-        public string Position { get; set; }
         public decimal Salary { get; set; }
+        public Guid Fk_Position { get; set; }
+        public string PositionName { get; set; }
+
     }
 }

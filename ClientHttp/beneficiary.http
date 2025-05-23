@@ -29,3 +29,99 @@ Content-Type: application/json
   "relationship": "hermano",
   "fk_Employee": "71c9c900-449a-4ca9-8c5c-08dc9403f008"
 }
+
+###
+POST https://sidonv2-dev-webapi.azurewebsites.net/api/locations/d8b1c930-717f-4c6f-716a-08dc43ae6a7d/subLocations/fc1e0be3-1788-47eb-c180-08dcc2c546db/subLocations HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI3MmVmMDEyZS05Nzk5LTQ2MTYtODQ5YS0wOGRjNjg4MWE4ZTkiLCJlbWFpbCI6ImNhcmxvcy5zb2xpc0BkZXZlbG9wbWVudDEuY29tIiwibmFtZSI6IkNhcmxvcyIsImxhc3RuYW1lIjoiU29saXMiLCJkb21haW4iOiJkZXZlbG9wbWVudDEiLCJleHAiOjE3MjQzNzE4NjV9.PE-edHT-8axZuM2CqkP5Ij99rOvUdtBN8Pg81v27ENc
+Content-Type: application/json
+x-api-key: N5aUALrb3Byl7DtlBAkL9.sGrSufK9gYnlhF1HM4eZDqHlX8VXFpy
+x-tenant-identifier: development1
+
+{
+"name": "SubLoc010301",
+"subLocationTyId":"2eb59956-8812-444c-6b4d-08dc4530e272"
+}
+###
+POST  https://sidonv2-dev-webapi.azurewebsites.net/api/users/login HTTP/1.1
+Content-Type:  application/json
+x-tenant-identifier: development1
+
+{
+  "email": "carlos.solis@development1.com",
+ "password": "TemporalPassword#2"
+ }
+### 
+PUT https://sidonv2-dev-webapi.azurewebsites.net/api/audittemplates/4dd4c0d7-0ce3-4746-b491-c677d6dcf723/  HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI3MmVmMDEyZS05Nzk5LTQ2MTYtODQ5YS0wOGRjNjg4MWE4ZTkiLCJlbWFpbCI6ImNhcmxvcy5zb2xpc0BkZXZlbG9wbWVudDEuY29tIiwibmFtZSI6IkNhcmxvcyIsImxhc3RuYW1lIjoiU29saXMiLCJkb21haW4iOiJkZXZlbG9wbWVudDEiLCJleHAiOjE3MjYyMDk4NDZ9.J63QY-JEso6V4M7jGy9cSGypsLnsJY2QSmPQOZQ0BoQ
+Content-Type: application/json
+x-tenant-identifier: development1
+x-api-key: N5aUALrb3Byl7DtlBAkL9.sGrSufK9gYnlhF1HM4eZDqHlX8VXFpy
+
+{
+  "enabled": false
+}
+###
+GET https://localhost:44300/api/locations/d8b1c930-717f-4c6f-716a-08dc43ae6a7d/sublocations/?level=1 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI3MmVmMDEyZS05Nzk5LTQ2MTYtODQ5YS0wOGRjNjg4MWE4ZTkiLCJlbWFpbCI6ImNhcmxvcy5zb2xpc0BkZXZlbG9wbWVudDEuY29tIiwibmFtZSI6IkNhcmxvcyIsImxhc3RuYW1lIjoiU29saXMiLCJkb21haW4iOiJkZXZlbG9wbWVudDEiLCJleHAiOjE3MjQzNzQ2NzB9.ZfdSRGJMCEf2dVdPpGWicRUMr-6p0gFpcVegjBY282c
+Content-Type: application/json
+x-api-key: N5aUALrb3Byl7DtlBAkL9.sGrSufK9gYnlhF1HM4eZDqHlX8VXFpy
+x-tenant-identifier: development1
+###
+GET https://localhost:44300/api/sublocationtys/?level=3 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI3MmVmMDEyZS05Nzk5LTQ2MTYtODQ5YS0wOGRjNjg4MWE4ZTkiLCJlbWFpbCI6ImNhcmxvcy5zb2xpc0BkZXZlbG9wbWVudDEuY29tIiwibmFtZSI6IkNhcmxvcyIsImxhc3RuYW1lIjoiU29saXMiLCJkb21haW4iOiJkZXZlbG9wbWVudDEiLCJleHAiOjE3MjQzNzQ2NzB9.ZfdSRGJMCEf2dVdPpGWicRUMr-6p0gFpcVegjBY282c
+Content-Type: application/json
+x-api-key: N5aUALrb3Byl7DtlBAkL9.sGrSufK9gYnlhF1HM4eZDqHlX8VXFpy
+x-tenant-identifier: development1
+###
+GET https://localhost:44300/api/locations/d8b1c930-717f-4c6f-716a-08dc43ae6a7d/subLocations/89555846-c668-41e1-1404-08dcbc9e0f74/subLocations HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI3MmVmMDEyZS05Nzk5LTQ2MTYtODQ5YS0wOGRjNjg4MWE4ZTkiLCJlbWFpbCI6ImNhcmxvcy5zb2xpc0BkZXZlbG9wbWVudDEuY29tIiwibmFtZSI6IkNhcmxvcyIsImxhc3RuYW1lIjoiU29saXMiLCJkb21haW4iOiJkZXZlbG9wbWVudDEiLCJleHAiOjE3MjQzNzQ2NzB9.ZfdSRGJMCEf2dVdPpGWicRUMr-6p0gFpcVegjBY282c
+Content-Type: application/json
+x-api-key: N5aUALrb3Byl7DtlBAkL9.sGrSufK9gYnlhF1HM4eZDqHlX8VXFpy
+x-tenant-identifier: development1
+
+1.1
+###
+GET https://localhost:44300/api/locations/d8b1c930-717f-4c6f-716a-08dc43ae6a7d/subLocations/89555846-c668-41e1-1404-08dcbc9e0f74/subLocations HTTP/1.1
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI3MmVmMDEyZS05Nzk5LTQ2MTYtODQ5YS0wOGRjNjg4MWE4ZTkiLCJlbWFpbCI6ImNhcmxvcy5zb2xpc0BkZXZlbG9wbWVudDEuY29tIiwibmFtZSI6IkNhcmxvcyIsImxhc3RuYW1lIjoiU29saXMiLCJkb21haW4iOiJkZXZlbG9wbWVudDEiLCJleHAiOjE3MjQzNzQ2NzB9.ZfdSRGJMCEf2dVdPpGWicRUMr-6p0gFpcVegjBY282c
+Content-Type: application/json
+x-api-key: N5aUALrb3Byl7DtlBAkL9.sGrSufK9gYnlhF1HM4eZDqHlX8VXFpy
+x-tenant-identifier: development1
+###
+
+GET https://localhost:44300/api/locations/d8b1c930-717f-4c6f-716a-08dc43ae6a7d/subLocations/5feec1f0-ac8e-443d-13b2-08dcbe1a9b56/subLocations HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI3MmVmMDEyZS05Nzk5LTQ2MTYtODQ5YS0wOGRjNjg4MWE4ZTkiLCJlbWFpbCI6ImNhcmxvcy5zb2xpc0BkZXZlbG9wbWVudDEuY29tIiwibmFtZSI6IkNhcmxvcyIsImxhc3RuYW1lIjoiU29saXMiLCJkb21haW4iOiJkZXZlbG9wbWVudDEiLCJleHAiOjE3MjQzNzQ2NzB9.ZfdSRGJMCEf2dVdPpGWicRUMr-6p0gFpcVegjBY282c
+Content-Type: application/json
+x-api-key: N5aUALrb3Byl7DtlBAkL9.sGrSufK9gYnlhF1HM4eZDqHlX8VXFpy
+x-tenant-identifier: development1
+###
+
+
+GET https://localhost:44300/api/locations/d8b1c930-717f-4c6f-716a-08dc43ae6a7d/subLocations/17ed4b47-b053-4273-13b3-08dcbe1a9b56/subLocations HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI3MmVmMDEyZS05Nzk5LTQ2MTYtODQ5YS0wOGRjNjg4MWE4ZTkiLCJlbWFpbCI6ImNhcmxvcy5zb2xpc0BkZXZlbG9wbWVudDEuY29tIiwibmFtZSI6IkNhcmxvcyIsImxhc3RuYW1lIjoiU29saXMiLCJkb21haW4iOiJkZXZlbG9wbWVudDEiLCJleHAiOjE3MjQzNzQ2NzB9.ZfdSRGJMCEf2dVdPpGWicRUMr-6p0gFpcVegjBY282c
+x-api-key: N5aUALrb3Byl7DtlBAkL9.sGrSufK9gYnlhF1HM4eZDqHlX8VXFpy
+x-tenant-identifier: development1
+###
+
+GET https://localhost:44300/api/locations/d8b1c930-717f-4c6f-716a-08dc43ae6a7d/subLocations/fc1e0be3-1788-47eb-c180-08dcc2c546db/subLocations HTTP/1.1
+Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI3MmVmMDEyZS05Nzk5LTQ2MTYtODQ5YS0wOGRjNjg4MWE4ZTkiLCJlbWFpbCI6ImNhcmxvcy5zb2xpc0BkZXZlbG9wbWVudDEuY29tIiwibmFtZSI6IkNhcmxvcyIsImxhc3RuYW1lIjoiU29saXMiLCJkb21haW4iOiJkZXZlbG9wbWVudDEiLCJleHAiOjE3MjQzNzQ2NzB9.ZfdSRGJMCEf2dVdPpGWicRUMr-6p0gFpcVegjBY282c
+Content-Type: application/json
+x-api-key: N5aUALrb3Byl7DtlBAkL9.sGrSufK9gYnlhF1HM4eZDqHlX8VXFpy
+x-tenant-identifier: development1
+
+###
+GET https://sidonv2-dev-webapi.azurewebsites.net/api/Locations/d8b1c930-717f-4c6f-716a-08dc43ae6a7d/reads?fahrenheit=false HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOiI3MmVmMDEyZS05Nzk5LTQ2MTYtODQ5YS0wOGRjNjg4MWE4ZTkiLCJlbWFpbCI6ImNhcmxvcy5zb2xpc0BkZXZlbG9wbWVudDEuY29tIiwibmFtZSI6IkNhcmxvcyIsImxhc3RuYW1lIjoiU29saXMiLCJkb21haW4iOiJkZXZlbG9wbWVudDEiLCJleHAiOjE3MjY3ODk2Mjl9.rgL7BjyEEePomHQS35gnQUFgS1oR2ZoGIVdPKKW_0mA
+x-api-key: N5aUALrb3Byl7DtlBAkL9.sGrSufK9gYnlhF1HM4eZDqHlX8VXFpy
+x-tenant-identifier: development1
+Content-Type:application/json
+  
+###
+GET  https://tbz4v08q-3004.usw3.devtunnels.ms/api/v1/cursos?pageIndex=1&pageSize=15&nombreCurso=&fechaInicio=&idEmpresa= HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicGVyZmlsIjoxLCJpYXQiOjE3NDA1MDY5OTIsImV4cCI6MTc0MDc2NjE5Mn0.MuWRvNJOmNlGSGbEJSd4LxV64fKnafuWqLA_6MpkA_Q
+
+
+###
+POST http://localhost/ecosat/EcosatServicios/ecosatservicios/ecosatservicios/funciones/traerTodosEmpleados.php HTTP/1.1
+{
+
+}

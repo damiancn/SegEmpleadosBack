@@ -1,0 +1,9 @@
+
+###
+POST https://localhost:44330/api/Login/login HTTP/1.1
+Content-Type: application/json
+
+{
+  "user": "Administrador",
+  "password": "admin"
+}

@@ -4,7 +4,7 @@ namespace DataAcccess.Util
 {
     public static class SqlValidation<T>
     {
-        public static T VailidateFound(T? entity, string name)
+        public static T ValidateFound(T? entity, string name)
         {
             if (entity == null)
             {
@@ -13,7 +13,7 @@ namespace DataAcccess.Util
 
             return entity;
         }
-        public static List<T> VailidateCountList(List<T> entity, string name)
+        public static List<T> ValidateCountList(List<T> entity, string name)
         {
             if (entity.Count == 0)
             {

@@ -1,5 +1,6 @@
 ﻿using Dtos.Commons;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.EntityFrameworkCore;
 using Resources.UtilsExecptions;
 using System.Net;
 
@@ -18,7 +19,7 @@ namespace SeguimientoEmpleadosAPI.Attributes
             int statusCode = 0;
             if (typeException == typeof(UnauthorizedAccessException))
             {
-                response.MesageError = "Unauthorized: JWT token is missing or invalid.";
+                response.MesageError = context.Exception.Message;
                 statusCode = (int)HttpStatusCode.Unauthorized;
             }
             else if (typeException == typeof(BusinessException))
@@ -30,7 +31,10 @@ namespace SeguimientoEmpleadosAPI.Attributes
             {
                 response.MesageError = context.Exception.Message;
                 statusCode = (int)HttpStatusCode.BadRequest;
-
+            }
+            else if(typeException == typeof(DbUpdateException)){
+                response.MesageError = context.Exception.Message;
+                statusCode = (int)HttpStatusCode.Conflict;
             }
             else
             {

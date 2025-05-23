@@ -1,0 +1,29 @@
+###
+GET https://localhost:44330/api/Page HTTP/1.1
+
+###
+GET https://localhost:44330/api/Page/id?id=ed32fb18-5fd0-4744-f8ac-08dcdf2f7bb4 HTTP/1.1
+
+###
+POST https://localhost:44330/api/Page HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": null,
+    "name": "Página",
+    "icon": "pages",
+    "code": "page",
+    "active": true  
+}
+
+###
+PUT https://localhost:44330/api/Page/ed32fb18-5fd0-4744-f8ac-08dcdf2f7bb4/id HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": "ed32fb18-5fd0-4744-f8ac-08dcdf2f7bb4",
+    "name": "Páginas",
+    "icon": "pages",
+    "code": "page",
+    "active": true
+}

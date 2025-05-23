@@ -17,7 +17,7 @@ namespace DataAcccess.Security.Rol
         public async Task<RolModel> GetRolUser(UserModel user)
         {
             var rolUser = await this.ctx.RolUsers.Where(e => e.Fk_User == user.Id && e.Active).Include(e => e.Rol).Select(ru => ru.Rol).FirstOrDefaultAsync();
-            SqlValidation<RolModel>.VailidateFound(rolUser, "RolUser");
+            SqlValidation<RolModel>.ValidateFound(rolUser, "RolUser");
             return rolUser;
         }
         public async Task<List<PageModel>> GetRolPages(UserModel user)
@@ -33,7 +33,7 @@ namespace DataAcccess.Security.Rol
                         Icon = pag.Icon,
                         Name = pag.Name,
                     }).Where(e => e.Active).Distinct().ToListAsync();
-            SqlValidation<PageModel>.VailidateCountList(pages, "Pages");
+            SqlValidation<PageModel>.ValidateCountList(pages, "Pages");
             return pages;
         }
 

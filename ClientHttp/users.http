@@ -1,0 +1,36 @@
+###
+GET https://localhost:44330/api/User HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOYW1lIjoiQWRtaW5pc3RyYWRvciIsIm5hbWVtYWlsIjoiQWRtaW5pc3RyYWRvciIsImp0aSI6IjgxZjI0OGJhLTNlMWMtNGJkZS1iNWNkLTNiMTJjNzA5OTAzMSIsIm5iZiI6MTcyNzQ2NzY2NSwiZXhwIjoxNzI3NTAzMTk5LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDMzMC8iLCJhdWQiOiJQdWJsaWMifQ.Dm05pZRtG2OZOlH5mr4NDFPHVsllhS4o-ZNfxit7Rd0
+
+###
+GET https://localhost:44330/api/User/id?id=38bd1db4-d945-43b0-7f60-58d43707c691 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOYW1lIjoiQWRtaW5pc3RyYWRvciIsIm5hbWVtYWlsIjoiQWRtaW5pc3RyYWRvciIsImp0aSI6IjgxZjI0OGJhLTNlMWMtNGJkZS1iNWNkLTNiMTJjNzA5OTAzMSIsIm5iZiI6MTcyNzQ2NzY2NSwiZXhwIjoxNzI3NTAzMTk5LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDMzMC8iLCJhdWQiOiJQdWJsaWMifQ.Dm05pZRtG2OZOlH5mr4NDFPHVsllhS4o-ZNfxit7Rd0
+
+###
+POST https://localhost:44330/api/User HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOYW1lIjoiQWRtaW5pc3RyYWRvciIsIm5hbWVtYWlsIjoiQWRtaW5pc3RyYWRvciIsImp0aSI6ImQxZWQ3NzhiLTJlNDItNDgzNS04OGU2LTk3YTU1YzUwYTE5YyIsIm5iZiI6MTcyNzcxMTYzMywiZXhwIjoxNzI3NzYyMzk5LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDMzMC8iLCJhdWQiOiJQdWJsaWMifQ.55kxQd9fgv9pXzPX0X4oNdXRq0tF7t6O7OgX68BUWzY
+
+{
+    "id": null,
+    "name": "Supervisor",
+    "password": null,
+    "active": true,
+    "fk_Employee": "38cfa51a-a5e4-83a2-2cfd-b3a608c8cc93"
+}
+
+###
+PUT https://localhost:44330/api/User/38bd1db4-d945-43b0-7f60-58d43707c691/id HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJOYW1lIjoiQWRtaW5pc3RyYWRvciIsIm5hbWVtYWlsIjoiQWRtaW5pc3RyYWRvciIsImp0aSI6ImQxZWQ3NzhiLTJlNDItNDgzNS04OGU2LTk3YTU1YzUwYTE5YyIsIm5iZiI6MTcyNzcxMTYzMywiZXhwIjoxNzI3NzYyMzk5LCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo0NDMzMC8iLCJhdWQiOiJQdWJsaWMifQ.55kxQd9fgv9pXzPX0X4oNdXRq0tF7t6O7OgX68BUWzY
+
+{
+   "id": null,
+    "name": "Supervisor",
+    "password": null,
+    "active": false,
+    "fk_Employee": "38cfa51a-a5e4-83a2-2cfd-b3a608c8cc93",
+    "employeeName": ""
+}

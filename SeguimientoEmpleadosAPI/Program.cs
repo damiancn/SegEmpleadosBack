@@ -28,6 +28,16 @@ using Services.Security.Rol.Impl;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using DataAcccess.Catalogs.Position;
+using Dtos.Catalogs.Position;
+using Services.Catalogs.Position;
+using Facade.Catalogs.Position;
+using Facade.Catalogs.Position.Impl;
+using DataAcccess.Security.Pages;
+using Services.Security.Page.Impl;
+using Dtos.Security.Page;
+using Facade.Security.Pages;
+using Facade.Security.Pages.Impl;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -79,6 +89,13 @@ builder.Services.AddScoped<IGenericService<UserDto>, UserService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserFacade, UserFacade>();
 
+builder.Services.AddScoped<ICatalogDao<PositionModel>, PositionDao>();
+builder.Services.AddScoped<IGenericService<PositionDto>, PositionService>();
+builder.Services.AddScoped<IPositionFacade, PositionFacade>();
+
+builder.Services.AddScoped<ICatalogDao<PageModel>, PageDao>();
+builder.Services.AddScoped<IGenericService<PageDto>, PageService>();
+builder.Services.AddScoped<IPageFacade, PageFacade>();
 
 var mvcBuilder = builder.Services.AddMvc();
 mvcBuilder.AddMvcOptions(p => p.Filters.Add(new CustomExceptionAttribute()));
